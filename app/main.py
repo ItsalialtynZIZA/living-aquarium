@@ -13,7 +13,7 @@ from app.websocket_manager import manager
 from app.device_config import get_device_code
 from app.device_service import get_device_by_code
 from app.fish_service import get_fishes_by_site
-
+from app.database import init_database
 # Корневая папка проекта
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -24,7 +24,7 @@ app = FastAPI(
     description="Интерактивная инсталляция с детскими рисунками",
     version="0.1.0",
 )
-
+init_database()
 
 # Подключаем API загрузки изображений
 app.include_router(upload_router)
