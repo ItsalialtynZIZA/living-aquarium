@@ -211,7 +211,7 @@ def init_database():
         )
 
         # ================================================
-        # INITIAL DEVICE
+        # GET INITIAL SITE
         # ================================================
 
         site = connection.execute(
@@ -222,6 +222,10 @@ def init_database():
             """,
             ("ASTANA-MAIN",),
         ).fetchone()
+
+        # ================================================
+        # INITIAL DEVICE
+        # ================================================
 
         if site is not None:
 
@@ -239,6 +243,31 @@ def init_database():
                     site["id"],
                     "ASTANA-SCREEN-001",
                     "Основной экран",
+                ),
+            )
+
+        # ================================================
+        # INITIAL SITE SETTINGS
+        # ================================================
+
+        if site is not None:
+
+            connection.execute(
+                """
+                INSERT OR IGNORE INTO site_settings (
+                    site_id,
+                    aquarium_name,
+                    max_fishes,
+                    fish_speed,
+                    active
+                )
+                VALUES (?, ?, ?, ?, 1)
+                """,
+                (
+                    site["id"],
+                    "Живой аквариум",
+                    300,
+                    1.0,
                 ),
             )
 
