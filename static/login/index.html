@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Живой аквариум — Вход</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    #163b52,
+                    #07131d 65%
+                );
+
+            font-family:
+                Arial,
+                sans-serif;
+
+            color: white;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 380px;
+
+            padding: 30px;
+
+            background: rgba(10, 25, 36, 0.95);
+
+            border: 1px solid
+                rgba(255, 255, 255, 0.1);
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.45);
+
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            margin: 0 0 28px;
+            color: #9fb2bf;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 16px;
+
+            border: 1px solid #304957;
+            border-radius: 12px;
+
+            background: #101f2a;
+            color: white;
+
+            font-size: 20px;
+            text-align: center;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #39a9ff;
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 14px;
+
+            padding: 16px;
+
+            border: none;
+            border-radius: 12px;
+
+            background: #168cff;
+            color: white;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+        }
+
+        .error {
+            margin-top: 16px;
+
+            color: #ff6b6b;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-box">
+
+        <h1>Живой аквариум</h1>
+
+        <p class="subtitle">
+            Панель администратора
+        </p>
+
+        <form id="login-form">
+
+            <input
+                id="password"
+                type="password"
+                placeholder="Введите пароль"
+                autocomplete="current-password"
+                inputmode="numeric"
+                maxlength="20"
+                required
+            >
+
+            <button
+                id="login-button"
+                type="submit"
+            >
+                Войти
+            </button>
+
+        </form>
+
+        <div
+            id="error"
+            class="error"
+        ></div>
+
+    </div>
+
+    <script>
+    const form =
+        document.getElementById("login-form");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const loginButton =
+        document.getElementById("login-button");
+
+    const errorBox =
+        document.getElementById("error");
+
+
+    form.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            errorBox.textContent = "";
+
+            const password =
+                passwordInput.value;
+
+            loginButton.disabled = true;
+            loginButton.textContent = "Вход...";
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/auth/admin-login",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+                            body: JSON.stringify({
+                                password: password
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        data.detail ||
+                        "Ошибка входа."
+                    );
+                }
+
+                window.location.href =
+                    "/admin";
+
+            } catch (error) {
+
+                errorBox.textContent =
+                    error.message ||
+                    "Ошибка соединения.";
+
+                loginButton.disabled = false;
+                loginButton.textContent =
+                    "Войти";
+            }
+        }
+    );
+</script>
+
+</body>
+</html>

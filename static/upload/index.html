@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Живой аквариум</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/upload/upload.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="upload-page">
+
+
+        <!-- ============================================== -->
+        <!-- ЗАГОЛОВОК -->
+        <!-- ============================================== -->
+
+        <section class="header">
+
+            <div class="logo">
+                ЖИВОЙ АКВАРИУМ
+            </div>
+
+            <h1>
+                Нарисуй свою рыбку
+            </h1>
+
+            <p>
+                Сделай фотографию своего рисунка,
+                и он появится в аквариуме.
+            </p>
+
+        </section>
+
+
+
+        <!-- ============================================== -->
+        <!-- ОБЛАСТЬ ЗАГРУЗКИ -->
+        <!-- ============================================== -->
+
+        <section class="upload-card">
+
+
+            <div class="camera-icon">
+                📷
+            </div>
+
+
+            <h2>
+                Готово?
+            </h2>
+
+
+            <p>
+                Сфотографируй рисунок
+                на белом листе бумаги.
+            </p>
+
+
+
+            <!-- ========================================== -->
+            <!-- ПРИМЕР НАПРАВЛЕНИЯ -->
+            <!-- ========================================== -->
+
+            <div class="fish-example">
+
+
+                <div class="fish-example-title">
+                    Нарисуй рыбку,
+                    смотрящую вправо
+                </div>
+
+
+                <div class="fish-example-image">
+
+                    <img
+                        src="/static/assets/fish.png"
+                        alt="Пример рыбки"
+                    >
+
+                    <span class="fish-arrow">
+                        →
+                    </span>
+
+                </div>
+
+
+                <div class="fish-example-hint">
+                    Голова → вправо
+                    <span>•</span>
+                    Хвост ← влево
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ========================================== -->
+            <!-- КНОПКА КАМЕРЫ -->
+            <!-- ========================================== -->
+
+            <label
+                for="camera-input"
+                class="camera-button"
+            >
+                Сделать фото
+            </label>
+
+
+
+            <!-- ========================================== -->
+            <!-- ВЫБОР ФОТОГРАФИИ -->
+            <!-- ========================================== -->
+
+            <input
+                id="camera-input"
+                type="file"
+                accept="image/*"
+                capture="environment"
+            >
+
+
+        </section>
+
+
+
+        <!-- ============================================== -->
+        <!-- ПРЕДПРОСМОТР -->
+        <!-- ============================================== -->
+
+        <section
+            id="preview-section"
+            class="preview-section hidden"
+        >
+
+
+            <h2>
+                Твой рисунок
+            </h2>
+
+
+            <img
+                id="preview-image"
+                alt="Предпросмотр рисунка"
+            >
+
+
+            <button
+                id="retake-button"
+                class="secondary-button"
+            >
+                Переснять
+            </button>
+
+            <button
+                id="continue-button"
+                class="submit-button"
+            >
+                Продолжить →
+            </button>
+
+            <button
+                id="submit-button"
+                class="submit-button hidden"
+            >
+                Отправить рыбку
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ============================================== -->
+        <!-- УСПЕШНАЯ ОТПРАВКА -->
+        <!-- ============================================== -->
+
+        <section
+            id="success-section"
+            class="success-section hidden"
+        >
+
+
+            <div class="success-icon">
+                🐟
+            </div>
+
+
+            <h2>
+                Твоя рыбка поплыла!
+            </h2>
+
+
+            <p>
+                Посмотри на большой экран.
+            </p>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ============================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================================== -->
+
+    <script src="/static/upload/upload.js"></script>
+
+
+</body>
+
+</html>

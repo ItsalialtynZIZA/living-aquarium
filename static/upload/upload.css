@@ -1,0 +1,805 @@
+/* ==================================================
+   БАЗА
+   ================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #ffffff;
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #1685a8 0%,
+            #075978 38%,
+            #033653 70%,
+            #021b2d 100%
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* ==================================================
+   ДЕКОРАТИВНЫЙ ФОН
+   ================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    width: 420px;
+    height: 420px;
+
+    left: -180px;
+    bottom: -220px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 220, 255, 0.10);
+
+    pointer-events: none;
+}
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 320px;
+    height: 320px;
+
+    right: -150px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 255, 200, 0.08);
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   ОСНОВНАЯ СТРАНИЦА
+   ================================================== */
+
+.upload-page {
+
+    width: 100%;
+
+    max-width: 720px;
+
+    min-height: 100vh;
+
+    margin: 0 auto;
+
+    padding:
+        35px 20px 50px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ==================================================
+   ЗАГОЛОВОК
+   ================================================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 28px;
+}
+
+.logo {
+
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    opacity: 0.9;
+}
+
+.header h1 {
+
+    font-size:
+        clamp(34px, 6vw, 52px);
+
+    line-height: 1.05;
+
+    font-weight: 900;
+
+    margin-bottom: 14px;
+}
+
+.header p {
+
+    font-size:
+        clamp(17px, 2.5vw, 21px);
+
+    line-height: 1.45;
+
+    opacity: 0.82;
+}
+
+
+/* ==================================================
+   КАРТОЧКА КАМЕРЫ
+   ================================================== */
+
+.upload-card {
+
+    width: 100%;
+
+    padding:
+        35px 35px 30px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.30);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+/* ==================================================
+   ИКОНКА КАМЕРЫ
+   ================================================== */
+
+.camera-icon {
+
+    width: 82px;
+    height: 82px;
+
+    margin:
+        0 auto 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255, 255, 255, 0.13);
+}
+
+
+/* ==================================================
+   ЗАГОЛОВОК КАРТОЧКИ
+   ================================================== */
+
+.upload-card h2 {
+
+    font-size: 30px;
+
+    font-weight: 900;
+
+    margin-bottom: 10px;
+}
+
+.upload-card > p {
+
+    font-size: 18px;
+
+    line-height: 1.5;
+
+    opacity: 0.82;
+
+    margin-bottom: 25px;
+}
+
+
+/* ==================================================
+   ПРИМЕР РЫБКИ
+   ================================================== */
+
+.fish-example {
+
+    width: 100%;
+
+    max-width: 370px;
+
+    margin:
+        20px auto 25px;
+
+    padding:
+        18px 20px;
+
+    text-align: center;
+
+    border-radius: 22px;
+
+    background:
+        rgba(0, 0, 0, 0.16);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+}
+
+.fish-example-title {
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    margin-bottom: 10px;
+}
+
+.fish-example-image {
+
+    position: relative;
+
+    width: 230px;
+    height: 105px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.fish-example-image img {
+
+    display: block;
+
+    width: 155px;
+    max-width: 155px;
+
+    height: 90px;
+
+    object-fit: contain;
+}
+
+.fish-arrow {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+
+    font-size: 40px;
+
+    font-weight: 900;
+}
+
+.fish-example-hint {
+
+    margin-top: 5px;
+
+    font-size: 14px;
+
+    opacity: 0.70;
+}
+
+.fish-example-hint span {
+
+    margin:
+        0 7px;
+}
+
+
+/* ==================================================
+   КНОПКА КАМЕРЫ
+   ================================================== */
+
+.camera-button {
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    width: 100%;
+
+    min-height: 68px;
+
+    padding:
+        16px 20px;
+
+    border-radius: 20px;
+
+    background:
+        #19d66b;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.22);
+
+    transition:
+        transform 0.15s ease,
+        filter 0.15s ease;
+}
+
+.camera-button:hover {
+
+    filter: brightness(1.08);
+
+    transform:
+        translateY(-2px);
+}
+
+.camera-button:active {
+
+    transform:
+        scale(0.98);
+}
+
+#camera-input {
+
+    display: none;
+}
+
+
+/* ==================================================
+   ПОДСКАЗКА
+   ================================================== */
+
+.upload-card::after {
+
+    content:
+        "После отправки посмотри на большой экран — твоя рыбка уже будет плавать!";
+
+    display: block;
+
+    margin-top: 17px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    color:
+        rgba(255, 255, 255, 0.60);
+}
+
+
+/* ==================================================
+   ПРЕДПРОСМОТР
+   ================================================== */
+
+.preview-section {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding:
+        30px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.30);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+.preview-section h2 {
+
+    font-size: 32px;
+
+    font-weight: 900;
+
+    margin-bottom: 18px;
+}
+
+#preview-image {
+
+    display: block;
+
+    width: 100%;
+
+    max-height: 430px;
+
+    object-fit: contain;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255, 255, 255, 0.96);
+
+    padding: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ==================================================
+   ОБЩИЕ КНОПКИ
+   ================================================== */
+
+button {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    padding:
+        14px 18px;
+
+    font-size: 18px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    transition:
+        transform 0.15s ease,
+        opacity 0.15s ease;
+}
+
+button:active {
+
+    transform:
+        scale(0.98);
+}
+
+button:disabled {
+
+    opacity: 0.45;
+
+    cursor: default;
+}
+
+
+/* ==================================================
+   ПЕРЕСНЯТЬ
+   ================================================== */
+
+.secondary-button {
+
+    background:
+        rgba(255, 255, 255, 0.13);
+
+    color: #ffffff;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+}
+
+
+/* ==================================================
+   ОТПРАВИТЬ / ПРОДОЛЖИТЬ
+   ================================================== */
+
+.submit-button {
+
+    background:
+        #19d66b;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* ==================================================
+   КНОПКА ОТЗЕРКАЛИВАНИЯ
+   Создаётся через upload.js
+   ================================================== */
+
+.rotation-button {
+
+    width: 100%;
+
+    min-height: 52px;
+
+    margin-top: 0;
+
+    margin-bottom: 10px;
+
+    padding:
+        12px 15px;
+
+    background:
+        rgba(255, 255, 255, 0.12);
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 16px;
+}
+
+.rotation-button:hover {
+
+    background:
+        rgba(255, 255, 255, 0.18);
+}
+
+
+/* ==================================================
+   УСПЕШНАЯ ОТПРАВКА
+   ================================================== */
+
+.success-section {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+    padding:
+        60px 35px;
+
+    text-align: center;
+
+    background:
+        rgba(255, 255, 255, 0.10);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.20);
+
+    border-radius: 32px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0, 0, 0, 0.30);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+.success-icon {
+
+    font-size: 100px;
+
+    margin-bottom: 20px;
+
+    animation:
+        fishFloat 2s ease-in-out infinite;
+}
+
+.success-section h2 {
+
+    font-size:
+        clamp(30px, 6vw, 46px);
+
+    font-weight: 900;
+
+    margin-bottom: 15px;
+}
+
+.success-section p {
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    opacity: 0.82;
+}
+
+
+/* ==================================================
+   АНИМАЦИЯ
+   ================================================== */
+
+@keyframes fishFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+}
+
+
+/* ==================================================
+   СКРЫТЫЕ ЭЛЕМЕНТЫ
+   ================================================== */
+
+.hidden {
+
+    display: none !important;
+}
+
+
+/* ==================================================
+   ПЛАНШЕТ
+   ================================================== */
+
+@media (max-width: 600px) {
+
+    .upload-page {
+
+        padding:
+            25px 15px 35px;
+    }
+
+    .upload-card,
+    .preview-section,
+    .success-section {
+
+        padding:
+            25px 20px;
+
+        border-radius: 25px;
+    }
+
+    .camera-icon {
+
+        width: 68px;
+        height: 68px;
+
+        font-size: 34px;
+    }
+
+    .upload-card h2 {
+
+        font-size: 27px;
+    }
+
+    .fish-example {
+
+        max-width: 330px;
+    }
+
+    .camera-button {
+
+        font-size: 18px;
+    }
+
+    #preview-image {
+
+        max-height: 350px;
+    }
+}
+
+
+/* ==================================================
+   МАЛЕНЬКИЙ ТЕЛЕФОН
+   ================================================== */
+
+@media (max-width: 380px) {
+
+    .upload-page {
+
+        padding:
+            18px 12px 25px;
+    }
+
+    .header h1 {
+
+        font-size: 30px;
+    }
+
+    .header p {
+
+        font-size: 15px;
+    }
+
+    .upload-card {
+
+        padding:
+            22px 16px;
+    }
+
+    .fish-example {
+
+        padding:
+            14px;
+    }
+
+    .fish-example-image {
+
+        width: 200px;
+    }
+
+    .fish-example-image img {
+
+        width: 135px;
+
+        max-width: 135px;
+    }
+
+    .fish-arrow {
+
+        font-size: 32px;
+    }
+
+    .camera-button {
+
+        min-height: 60px;
+
+        font-size: 17px;
+    }
+}

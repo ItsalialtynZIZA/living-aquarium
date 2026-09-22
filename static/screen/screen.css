@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    background: #000;
+}
+
+#aquarium {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #031724;
+}
+
+/* ==================================================
+   ВИДЕО
+   ================================================== */
+
+#ocean-video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    background: #031724;
+
+    z-index: 1;
+}
+
+/* ==================================================
+   ЗАТЕМНЕНИЕ
+   ================================================== */
+
+#ocean-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 20, 35, 0.15);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+/* ==================================================
+   CANVAS
+   ================================================== */
+
+#fish-canvas {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    z-index: 3;
+
+    pointer-events: none;
+}

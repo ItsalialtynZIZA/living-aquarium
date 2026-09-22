@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Живой аквариум</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/screen/screen.css"
+    >
+
+</head>
+
+<body>
+
+    <main id="aquarium">
+
+        <video
+            id="ocean-video"
+            autoplay
+            muted
+            playsinline
+            loop
+            preload="auto"
+        >
+
+            <source
+                src="/static/assets/ocean.mp4"
+                type="video/mp4"
+            >
+
+        </video>
+
+
+        <div id="ocean-overlay"></div>
+
+
+        <canvas id="fish-canvas"></canvas>
+
+    </main>
+
+
+    <script src="/static/screen/screen.js"></script>
+
+</body>
+
+</html>

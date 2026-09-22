@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Живой аквариум — Админ</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/admin/admin.css"
+    >
+</head>
+
+<body>
+
+    <main class="admin-container">
+
+        <header class="admin-header">
+            <div>
+                <h1>Живой аквариум</h1>
+                <p>Панель управления</p>
+            </div>
+
+            <div class="site-info">
+                <span>Площадка</span>
+                <strong id="site-name">Загрузка...</strong>
+            </div>
+        </header>
+
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <span>Активных рыбок</span>
+                <strong id="fish-count">0</strong>
+            </div>
+
+        </section>
+
+
+        <section class="actions">
+
+            <button
+                id="clear-all-button"
+                class="danger-button"
+            >
+                УДАЛИТЬ ВСЕХ РЫБОК
+            </button>
+
+        </section>
+
+
+        <section>
+
+            <div class="section-header">
+                <h2>Рыбки на экране</h2>
+
+                <button
+                    id="refresh-button"
+                    class="refresh-button"
+                >
+                    Обновить
+                </button>
+            </div>
+
+
+            <div
+                id="fish-list"
+                class="fish-list"
+            >
+                <div class="loading">
+                    Загрузка рыбок...
+                </div>
+            </div>
+
+        </section>
+
+
+        <div
+            id="message"
+            class="message hidden"
+        ></div>
+
+    </main>
+
+
+    <script src="/static/admin/admin.js"></script>
+
+</body>
+</html>
