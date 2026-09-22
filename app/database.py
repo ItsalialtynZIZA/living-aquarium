@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+from app.auth.password import hash_password
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -270,7 +271,41 @@ def init_database():
                     1.0,
                 ),
             )
+        # ================================================
+        # INITIAL ADMIN
+        # ================================================
 
+        if site is not None:
+
+            admin = connection.execute(
+                """
+                SELECT id
+                FROM users
+                WHERE username = ?
+                """,
+                ("admin",),
+            ).fetchone()
+
+            if admin is None:
+
+                connection.execute(
+                    """
+                    INSERT INTO users (
+                        username,
+                        password_hash,
+                        role,
+                        site_id,
+                        active
+                    )
+                    VALUES (?, ?, ?, ?, 1)
+                    """,
+                    (
+                        "admin",
+                        hash_password("0913"),
+                        "site_admin",
+                        site["id"],
+                    ),
+                )
         # ================================================
         # SAVE
         # ================================================
