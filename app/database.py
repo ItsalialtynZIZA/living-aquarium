@@ -189,6 +189,63 @@ def init_database():
             """
         )
 
+        # ================================================
+        # INITIAL SITE
+        # ================================================
+
+        connection.execute(
+            """
+            INSERT OR IGNORE INTO sites (
+                name,
+                location,
+                code,
+                active
+            )
+            VALUES (?, ?, ?, 1)
+            """,
+            (
+                "Основная площадка",
+                "Astana",
+                "ASTANA-MAIN",
+            ),
+        )
+
+        # ================================================
+        # INITIAL DEVICE
+        # ================================================
+
+        site = connection.execute(
+            """
+            SELECT id
+            FROM sites
+            WHERE code = ?
+            """,
+            ("ASTANA-MAIN",),
+        ).fetchone()
+
+        if site is not None:
+
+            connection.execute(
+                """
+                INSERT OR IGNORE INTO devices (
+                    site_id,
+                    device_code,
+                    name,
+                    active
+                )
+                VALUES (?, ?, ?, 1)
+                """,
+                (
+                    site["id"],
+                    "ASTANA-SCREEN-001",
+                    "Основной экран",
+                ),
+            )
+
+        # ================================================
+        # SAVE
+        # ================================================
+
         connection.commit()
 
     finally:
